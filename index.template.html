@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{%=o.htmlWebpackPlugin.options.title || 'Sangria Relay Example'%}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+    {% } %}
+  </head>
+  <body>
+    <div id="app"></div>
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
+    {% } %}
+  </body>
+</html>

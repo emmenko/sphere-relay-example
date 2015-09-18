@@ -1,0 +1,53 @@
+{
+  "name": "sangria-relay-example",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/emmenko/sangria-relay-example",
+  "author": "Nicola Molinari <emmenko@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emmenko/sangria-relay-example.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emmenko/sangria-relay-example/issues"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run lint && webpack",
+    "clean": "rimraf dist",
+    "deploy": "npm run dist && gh-pages -d dist",
+    "dist": "npm run build -- --config webpack.config.production.js",
+    "lint": "eslint lib",
+    "start": "npm run build && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-runtime": "5.8.20",
+    "history": "^1.8.4",
+    "react": "0.13.3",
+    "react-relay": "0.3.1",
+    "react-router-relay": "0.5.0",
+    "react-router": "1.0.0-beta4"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-eslint": "^4.1.1",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-react-intl": "^1.0.0-beta-3",
+    "babel-plugin-react-transform": "^1.0.1",
+    "eslint": "^1.4.3",
+    "eslint-plugin-react": "^3.3.1",
+    "express": "^4.13.3",
+    "gh-pages": "^0.4.0",
+    "html-webpack-plugin": "^1.6.1",
+    "mkdirp": "^0.5.1",
+    "react-transform-catch-errors": "^0.1.1",
+    "react-transform-webpack-hmr": "^0.1.2",
+    "redbox-react": "^1.0.1",
+    "rimraf": "^2.4.2",
+    "webpack": "^1.12.1",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.0.0"
+  }
+}
