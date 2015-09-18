@@ -34,7 +34,15 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'lib') }
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        include: path.join(__dirname, 'lib'),
+        query: {
+          // This can't be loaded through .babelrc for some reason.
+          plugins: [path.join(__dirname, 'schema', 'plugin')]
+        }
+      }
     ]
   }
 };

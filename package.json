@@ -22,12 +22,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "babel-runtime": "5.8.20",
-    "history": "^1.8.4",
-    "react": "0.13.3",
+    "babel-runtime": "5.8.24",
+    "history": "1.9.1",
+    "react": "0.14.0-rc1",
+    "react-dom": "0.14.0-rc1",
     "react-relay": "0.3.1",
     "react-router-relay": "0.5.0",
-    "react-router": "1.0.0-beta4"
+    "react-router": "1.0.0-rc1"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -36,13 +37,14 @@
     "babel-loader": "^5.3.2",
     "babel-plugin-react-intl": "^1.0.0-beta-3",
     "babel-plugin-react-transform": "^1.0.1",
+    "babel-relay-plugin": "^0.2.3",
     "eslint": "^1.4.3",
     "eslint-plugin-react": "^3.3.1",
     "express": "^4.13.3",
     "gh-pages": "^0.4.0",
     "html-webpack-plugin": "^1.6.1",
     "mkdirp": "^0.5.1",
-    "react-transform-catch-errors": "^0.1.1",
+    "react-transform-catch-errors": "^0.2.0",
     "react-transform-webpack-hmr": "^0.1.2",
     "redbox-react": "^1.0.1",
     "rimraf": "^2.4.2",

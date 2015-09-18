@@ -13,6 +13,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+app.get('/graphql', function (req, res) {
+  console.log(req);
+  res.json({ data: { welcome: { message: 'Welcome' } } });
+});
+
 app.get('*', function (req, res) {
   console.log(req.url);
   res.sendFile(path.join(__dirname, './dist/index.html'));
