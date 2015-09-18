@@ -13,12 +13,13 @@
     "url": "https://github.com/emmenko/sangria-relay-example/issues"
   },
   "scripts": {
-    "build": "npm run clean && npm run lint && webpack",
+    "build": "npm run clean && npm run lint && npm run build:schema && webpack",
+    "build:schema": "babel-node scripts/update-schema.js",
     "clean": "rimraf dist",
     "deploy": "npm run dist && gh-pages -d dist",
     "dist": "npm run build -- --config webpack.config.production.js",
     "lint": "eslint lib",
-    "start": "npm run build && node server.js",
+    "start": "npm run build && babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -39,9 +40,12 @@
     "babel-plugin-react-transform": "^1.0.1",
     "babel-relay-plugin": "^0.2.3",
     "eslint": "^1.4.3",
-    "eslint-plugin-react": "^3.3.1",
+    "eslint-plugin-react": "^3.4.2",
     "express": "^4.13.3",
+    "express-graphql": "^0.3.0",
     "gh-pages": "^0.4.0",
+    "graphql": "^0.4.4",
+    "graphql-relay": "^0.3.2",
     "html-webpack-plugin": "^1.6.1",
     "mkdirp": "^0.5.1",
     "react-transform-catch-errors": "^0.2.0",

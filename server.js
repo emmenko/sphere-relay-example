@@ -1,33 +1,34 @@
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config');
+import path from 'path'
+import express from 'express'
+import graphqlHttp from 'express-graphql'
+import webpack from 'webpack'
+import config from './webpack.config'
+import schema from './schema'
 
-var app = express();
-var compiler = webpack(config);
+const app = express()
+const compiler = webpack(config)
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
-}));
+}))
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(require('webpack-hot-middleware')(compiler))
 
-app.get('/graphql', function (req, res) {
-  console.log(req);
-  res.json({ data: { welcome: { message: 'Welcome' } } });
-});
+app.use('/graphql', graphqlHttp({ schema }))
+app.use('/relay', express.static(
+  path.join(__dirname, './node_modules/react-relay/dist')))
 
-app.get('*', function (req, res) {
-  console.log(req.url);
-  res.sendFile(path.join(__dirname, './dist/index.html'));
-});
+app.get('*', (req, res) => {
+  console.log(req.url)
+  res.sendFile(path.join(__dirname, './dist/index.html'))
+})
 
-app.listen(3001, 'localhost', function (err) {
+app.listen(3001, 'localhost', (err) => {
   if (err) {
-    console.error(err);
-    return;
+    console.error(err)
+    return
   }
 
-  console.log('Listening at http://localhost:3001');
-});
+  console.log('Listening at http://localhost:3001')
+})

@@ -2,3 +2,4 @@ webpack.*
 server.js
 dist
 schema
+scripts
