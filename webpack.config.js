@@ -18,7 +18,9 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('development'),
+        'SPHERE_PROJECT_KEY': JSON.stringify(process.env.SPHERE_PROJECT_KEY),
+        'SPHERE_ACCESS_TOKEN': JSON.stringify(process.env.SPHERE_ACCESS_TOKEN)
       },
       '__DEVTOOLS__': process.env.DEVTOOLS === 'true' ? true : false
     }),
