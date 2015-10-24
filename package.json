@@ -29,7 +29,8 @@
     "react-dom": "0.14.0",
     "react-relay": "0.4.0",
     "react-router": "1.0.0-rc3",
-    "react-router-relay": "0.7.0"
+    "react-router-relay": "0.7.0",
+    "sphere-node-sdk": "^2.0.0-alpha.5"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -47,7 +48,6 @@
     "graphql-relay": "^0.3.4",
     "html-webpack-plugin": "^1.6.2",
     "mkdirp": "^0.5.1",
-    "sphere-node-sdk": "^2.0.0-alpha.5",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
