@@ -1,16 +1,16 @@
 {
-  "name": "sangria-relay-example",
+  "name": "sphere-relay-example",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://github.com/emmenko/sangria-relay-example",
+  "homepage": "https://github.com/emmenko/sphere-relay-example",
   "author": "Nicola Molinari <emmenko@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/emmenko/sangria-relay-example.git"
+    "url": "https://github.com/emmenko/sphere-relay-example.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/emmenko/sangria-relay-example/issues"
+    "url": "https://github.com/emmenko/sphere-relay-example/issues"
   },
   "scripts": {
     "build": "npm run clean && npm run lint && npm run build:schema && webpack",
