@@ -1,20 +1,35 @@
 import fs from 'fs'
 import path from 'path'
-import { graphql } from 'graphql'
+import SphereClient from 'sphere-node-sdk'
 import { introspectionQuery } from 'graphql/utilities'
 
-import schema from '../schema'
+const client = SphereClient.create({
+  auth: {
+    credentials: {
+      projectKey: process.env.SPHERE_PROJECT_KEY,
+      clientId: process.env.SPHERE_CLIENT_ID,
+      clientSecret: process.env.SPHERE_CLIENT_SECRET
+    }
+  },
+  request: {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'User-Agent': 'relay-example'
+    }
+  }
+})
+const body = JSON.stringify({
+  query: introspectionQuery
+})
 
-graphql(schema, introspectionQuery)
-.then(function (result) {
-  if (result.errors)
-    throw new Error(result.errors)
-
+client.graphql.query(body)
+.then(({ body }) => {
+  console.log(body)
   fs.writeFileSync(
-    path.join(__dirname, '../schema/schema.json'),
-    JSON.stringify(result, null, 2)
+    path.join(__dirname, '../schema.json'),
+    JSON.stringify(body, null, 2)
   )
+  console.log('Schema saved as `schema.json`')
 })
-.catch(function (error) {
-  throw new Error(error)
-})
+.catch(error => console.error(error))

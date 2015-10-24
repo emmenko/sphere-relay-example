@@ -1,6 +1,5 @@
 import path from 'path'
 import express from 'express'
-import graphqlHttp from 'express-graphql'
 import webpack from 'webpack'
 import config from './webpack.config'
 import schema from './schema'
@@ -15,7 +14,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler))
 
-app.use('/graphql', graphqlHttp({ schema }))
 app.use('/relay', express.static(
   path.join(__dirname, './node_modules/react-relay/dist')))
 

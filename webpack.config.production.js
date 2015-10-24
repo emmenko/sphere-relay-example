@@ -26,7 +26,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      title: 'Redux React Router Async Example',
+      title: 'Relay example',
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets/images/favicon.ico')
@@ -40,7 +40,7 @@ module.exports = {
         include: path.join(__dirname, 'lib'),
         query: {
           // This can't be loaded through .babelrc for some reason.
-          plugins: [path.join(__dirname, 'schema', 'plugin')]
+          plugins: [path.join(__dirname, 'plugin')]
         }
       }
     ]
