@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import SphereClient from 'sphere-node-sdk'
-import { introspectionQuery } from 'graphql/utilities'
+// import { introspectionQuery } from 'graphql/utilities'
+import introspectionQuery from './introspection-query'
 
 const client = SphereClient.create({
   auth: {
